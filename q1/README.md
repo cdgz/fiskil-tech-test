@@ -14,6 +14,10 @@ We might need to define "control instance" which would act as a global/main inst
 
 > Furthermore, please provide a high-level component diagram using cloud-based design principles, utilising components from GCP and open source tools that would support your proposed solution.
 
+![Screenshot from 2023-07-26 11-51-47](https://github.com/cdgz/fiskil-tech-test/assets/734701/47de72d0-02e1-4027-b228-4ab5ee0c7164)
+
+![Screenshot from 2023-07-26 11-55-06](https://github.com/cdgz/fiskil-tech-test/assets/734701/f7fa2662-a82f-4929-a587-14157cd67a11)
+
 On simplified diagrams, we run every SaaS instance in dedicated GKE plane. Compute worfkload hosts both UI and backend services, which are exposed as K8s services to WAN via ingresses tied to Google Cloud Load Balancers who terminate TLS. Compute workload has access to any storage resources (Google Cloud SQL, Cloud Storage buckets, Datastore/Bigtable) and any other managed services like Cloud Run, Cloud Functions, Pub-Sub, AI.
 
 Every customer would access DNS endpoint only known to them. As additinal security, WAF rules might be installed to allow incoming traffic only from IP addresses associated to given customer.
